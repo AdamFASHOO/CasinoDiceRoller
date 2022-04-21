@@ -15,15 +15,24 @@ public class Program
         Random random = new Random();
 
         Console.WriteLine("Welcome to the Grand Circus Casino!");
-        int diceSides;
+        int diceSides;  
         int.TryParse(GetUserInput("How many sides should each die have?"), out diceSides);
-       
-        Console.WriteLine("Your rolls are: ");
-        int rollOne = RandomMethod(random, diceSides);
-        int rollTwo = RandomMethod(random, diceSides);
         if (diceSides == 6)
         {
+            Console.WriteLine("\nYour rolls are: ");
+            int rollOne = RandomMethod(random, diceSides);
+            int rollTwo = RandomMethod(random, diceSides);
             RollDeterminer(rollOne, rollTwo);
+        }
+        else if (diceSides <= 1)
+        {
+            Console.WriteLine("That input was not acceptable, sorry.");
+        }
+        else
+        {
+            Console.WriteLine("\nYour rolls are: ");
+            int rollOne = RandomMethod(random, diceSides);
+            int rollTwo = RandomMethod(random, diceSides);
         }
     }
     public static void RollDeterminer(int rollOne, int rollTwo)
